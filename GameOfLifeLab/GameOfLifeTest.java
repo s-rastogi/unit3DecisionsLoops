@@ -64,7 +64,7 @@ public class GameOfLifeTest
             for(int col = 0; col < COLS; col++)
             {
                 // in this example, an alive cell has a non-null actor and a dead cell has a null actor
-                Saahil cell = game.getSaahil(row, col);
+                Actor cell = game.getActor(row, col);
 
                 // if the cell at the current row and col should be alive, assert that the actor is not null
                 if(     (row == 0 && col == 2) ||
@@ -99,6 +99,30 @@ public class GameOfLifeTest
            */
       
         // ...
+        GameOfLife game = new GameOfLife();
+        final int ROWS = game.getNumRows();
+        final int COLS = game.getNumCols();
+
+        for(int row = 0; row < ROWS; row++)
+        {
+            for(int col = 0; col < COLS; col++)
+            {
+                // in this example, an alive cell has a non-null actor and a dead cell has a null actor
+                Actor cell = game.getActor(row, col);
+
+                // if the cell at the current row and col should be alive, assert that the actor is not null
+                if(     (row == 0 && col == 2) ||
+                        (row == 2 && col == 0) ||
+                        (row == 2 && col == 1))
+                {
+                    assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
+                }
+                else // else, the cell should be dead; assert that the actor is null
+                {
+                    assertNull("expected dead cell at (" + row + ", " + col + ")", cell);
+                }
+            }
+        }
     }
 }
 

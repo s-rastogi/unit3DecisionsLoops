@@ -17,9 +17,9 @@ public class GameOfLife
     // the world comprised of the grid that displays the graphics for the game
     private ActorWorld world;
     
-    // the game board will have 5 rows and 5 columns
-    private final int ROWS = 5;
-    private final int COLS = 5;
+    // the game board will have 6 rows and 6 columns
+    private final int ROWS = 6;
+    private final int COLS = 6;
     
     /**
      * Default constructor for objects of class GameOfLife
@@ -136,9 +136,14 @@ public class GameOfLife
      * Creates an instance of this class. Provides convenient execution.
      *
      */
-    public static void main(String[] args)
+    public static void main(String[] args)throws InterruptedExpression
     {
         GameOfLife game = new GameOfLife();
+        for(int i =0;i<20; i++)
+        {
+            game.createNextGeneration();
+            Thread.sleep(1000);
+       
     }
 
 }
